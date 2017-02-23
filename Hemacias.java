@@ -1,4 +1,4 @@
-package emancias;
+package hemacias;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -6,13 +6,13 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class Emancias {
+public class Hemacias {
 
     public static void main(String[] args) {
-        File arquivo = new File("src/emancias/sangue.jpg");
+        File arquivo = new File("src/hemacias/sangue.jpg");
         try {
             BufferedImage amostra = ImageIO.read(arquivo);
-            BufferedImage emancias = new BufferedImage(amostra.getWidth(), amostra.getHeight(), BufferedImage.TYPE_INT_RGB);
+            BufferedImage hemacias = new BufferedImage(amostra.getWidth(), amostra.getHeight(), BufferedImage.TYPE_INT_RGB);
 
             Color destaque = new Color(0xFF, 150, 150);
 
@@ -20,15 +20,15 @@ public class Emancias {
                 for (int coluna = 0; coluna < amostra.getHeight(); coluna++) {
                     Color pixel = new Color(amostra.getRGB(linha, coluna));
                     if (pixel.getBlue() < 200) {
-                        emancias.setRGB(linha, coluna, destaque.getRGB());
+                        hemacias.setRGB(linha, coluna, destaque.getRGB());
                     } else {
-                        emancias.setRGB(linha, coluna, amostra.getRGB(linha, coluna));
+                        hemacias.setRGB(linha, coluna, amostra.getRGB(linha, coluna));
 
                     }
                 }
 
             }
-            ImageIO.write(emancias, "jpg", new File("src/emancias/resultado.jpg"));
+            ImageIO.write(hemacias, "jpg", new File("src/hemacias/resultado.jpg"));
         } catch (IOException ex) {
             System.out.println("Não existe a imagem");
         }
