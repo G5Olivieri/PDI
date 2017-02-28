@@ -5,6 +5,8 @@ using namespace cv;
 
 int main(int argc, char *argv[])
 {
+	// mesma coisa de abrir um video só que 0
+	// é igual a primeira cam conectada
 	VideoCapture capture(0);
 	Mat frame;
 

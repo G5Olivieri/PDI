@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 
 	// suave imagem
 	cv::Mat img_svz;
+
 	// Nomeando windows
 	cv::namedWindow("Exemplo Cinza", cv::WINDOW_AUTOSIZE);
 	cv::namedWindow("Exemplo Canny", cv::WINDOW_AUTOSIZE);
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
 	cv::namedWindow("Exemplo Metade Suavizada", cv::WINDOW_AUTOSIZE);
 	cv::namedWindow("Exemplo Canny Suavizada", cv::WINDOW_AUTOSIZE);
 	cv::namedWindow("Exemplo Cinza Suavizada", cv::WINDOW_AUTOSIZE);
+
 	// abrindo imagem
 	img_rgb = cv::imread(argv[1]);
 	if (img_rgb.empty())

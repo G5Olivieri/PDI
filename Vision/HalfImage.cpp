@@ -25,7 +25,8 @@ int main(int argc, char *argv[])
 	}
 
 	imshow("Exemplo1", img);
-	
+	// dividindo altura e larguro por 2
+	// metade da tela
 	pyrDown(img, img_down);
 	imshow("Exemplo2", img_down);
 

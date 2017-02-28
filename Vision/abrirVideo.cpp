@@ -6,9 +6,11 @@
 using namespace std;
 using namespace cv;
 
+// status da trackbar
 int g_slider_position = 0;
 int g_run = 1;
 int g_dont_set = 0;
+// instanciando obj do tipo VideoCapture
 VideoCapture g_cap;
 
 void onTrackBarSlide(int pos, void *)
@@ -30,8 +32,10 @@ int main(int argc, char *argv[])
 	}
 
 	namedWindow("Image", WINDOW_AUTOSIZE);
+	// abrindo video
 	g_cap.open(String(argv[1]));
-
+	
+	// status do video
 	int frames = (int) g_cap.get(CAP_PROP_FRAME_COUNT);
 	int tmpw   = (int) g_cap.get(CAP_PROP_FRAME_WIDTH);
 	int tmph   = (int) g_cap.get(CAP_PROP_FRAME_HEIGHT);
@@ -44,16 +48,18 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
-		if (g_run)
+		if (g_run) // se g_run for diferente de zero
 		{
 			g_cap >> frame;
-			if (!frame.data) break;
-			int current_pos = (int) g_cap.get(CAP_PROP_POS_FRAMES);
-			g_dont_set = 1;
-			setTrackbarPos("Position", "Image", current_pos);
+			if (!frame.data) break; // verifica se foi aberto o video
+			int current_pos = (int) g_cap.get(CAP_PROP_POS_FRAMES); // posição/frame atual
+			g_dont_set = 1; // atribuindo 1 para que g_run não volte a ser 1
+			setTrackbarPos("Position", "Image", current_pos); // atualizando track posiçao
 			imshow("Image", frame);
-			g_run -= 1;
+			g_run -= 1; // diminuindo para fazer a barra andar
 		}
+
+		// 'r' roda o video, e 's' para 
 		char c = (char)waitKey(10);
 		if (c == 's')
 		{
@@ -65,7 +71,7 @@ int main(int argc, char *argv[])
 			g_run = -1;
 			cout << "Run mode, run = " << g_run << endl;
 		}
-		if (c == 27) break;
+		if (c == 27) break; // <ESQ> termina a execução
 	}
 	return 0;
 }
