@@ -3,10 +3,11 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc < 2)
+	if (argc < )
 	{
-		std::cout << "Uso: " << argv[0] << "<file_path>\n";
+		std::cerr << "Uso: " << argv[0] << " <file_path>\n\n";
 		return 0;
 	}
+
 	return 0;
 }
