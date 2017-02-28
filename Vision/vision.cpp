@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
 	if (argc < 2)
 	{
-		std::cout << "Uso: " << argv[0] << "<file_path>\n";
+		std::cout << "Uso: " << argv[0] << " <file_path>\n";
 		return 0;
 	}
 	return 0;
